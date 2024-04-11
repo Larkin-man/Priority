@@ -10,8 +10,8 @@
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
-	: TForm(Owner)
+
+__fastcall TForm1::TForm1(TComponent* Owner)	: TForm(Owner)
 {
 	A = U = S = 0;
 	CurrS = -1;
@@ -20,6 +20,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	OpenDialog1->InitialDir = GetCurrentDir();
 }
 //---------------------------------------------------------------------------
+
 void __fastcall TForm1::NewPosClick(TObject *Sender)
 {
 	if (CheckMassAdd)
@@ -30,8 +31,10 @@ void __fastcall TForm1::NewPosClick(TObject *Sender)
 	AS.push_back(s);
 	AList->InsertRow(Name->Text,0,true);//А "+IntToStr(A),0,true);
 	Search->Items->Add(Name->Text);//"А "+IntToStr(A));
+	IncreaseName();
 }
 //---------------------------------------------------------------------------
+
 void __fastcall TForm1::NewSClick(TObject *Sender)
 {
 	if (CheckMassAdd)
@@ -52,7 +55,8 @@ void __fastcall TForm1::NewSClick(TObject *Sender)
 	//Out->Lines->Add(UA[0].size());
 
 	SList->Items->Add(Name->Text);//"Свойство "+IntToStr(S));
-   //NewItem.*ShowModal();
+	//NewItem.*ShowModal();
+	IncreaseName();
 }
 //---------------------------------------------------------------------------
 
@@ -72,6 +76,7 @@ void __fastcall TForm1::NewAClick(TObject *Sender)
 	UList->ItemIndex = U-1;
 	UListSelect(Sender);
 	Search->ItemIndex = 0;
+	IncreaseName();
 }
 //---------------------------------------------------------------------------
 
@@ -80,7 +85,7 @@ void __fastcall TForm1::ShowClick(TObject *Sender)
 	/*//Out->Lines->Add("SHow");
 	for (int i = 0; i < A; ++i)
 		for (int j = 0; j < S; ++j)
-			Out->Lines->Add(AS[i][j]);    */
+			Out->Lines->Add(AS[i][j]); */
 }
 //---------------------------------------------------------------------------
 
@@ -146,7 +151,7 @@ void __fastcall TForm1::SearchChange(TObject *Sender)
 		for (int i = 0; i < U; ++i)
 		{
 			UList->Items->Add(Uses[i].Name);
-         Uses[i].Pos = i;
+			Uses[i].Pos = i;
 		}
 		UList->ItemIndex = CurrU;
 		return;
@@ -198,16 +203,16 @@ void TForm1::MassAdd(char Type)
 	{
 		Name->Text = Names.SubString(1,p-1);
 		Names.Delete(1,p);
-		if (Type == 'P') NewPosClick(NULL);  
-		else if (Type == 'S') NewSClick(NULL); 
-		else if (Type == 'A') NewAClick(NULL); 
+		if (Type == 'P') NewPosClick(NULL);
+		else if (Type == 'S') NewSClick(NULL);
+		else if (Type == 'A') NewAClick(NULL);
 	}
 	Name->Text = Names;
-	if (Type == 'P') NewPosClick(NULL);  
-	else if (Type == 'S') NewSClick(NULL); 
-	else if (Type == 'A') NewAClick(NULL); 
+	if (Type == 'P') NewPosClick(NULL);
+	else if (Type == 'S') NewSClick(NULL);
+	else if (Type == 'A') NewAClick(NULL);
 	Name->Text = "Название";
-	CheckMassAdd = true;    
+	CheckMassAdd = true;
 }
 //---------------------------------------------------------------------------
 //Загрузить из файла
@@ -215,30 +220,30 @@ void __fastcall TForm1::NLoadClick(TObject *Sender)
 {
 	if (OpenDialog1->Execute() == ID_OK)
 	{
-		TStringList *file;  
+		TStringList *file;
 		file = new TStringList;
 		file->LoadFromFile(OpenDialog1->FileName);
 		CheckMassAdd = false;
 		if (ContextPopupType == 'P')
 		{
 			for (int i = 0; i < file->Count; ++i)
-			{  
-				Name->Text = file->Names[i];	 
+			{
+				Name->Text = file->Names[i];
 				NewPosClick(NULL);
 			}
 		} else if (ContextPopupType == 'S')
 		{
 			for (int i = 0; i < file->Count; ++i)
-			{   
-				Name->Text = file->Strings[i]; //SList->Items->Add(file->Strings[i]);	 
-				NewSClick(NULL); 
+			{
+				Name->Text = file->Strings[i]; //SList->Items->Add(file->Strings[i]);
+				NewSClick(NULL);
 			}
 		} else if (ContextPopupType == 'A')
 		{
 			for (int i = 0; i < file->Count; ++i)
-			{   
-				Name->Text = file->Strings[i]; //SList->Items->Add(file->Strings[i]);	 
-				NewAClick(NULL); 
+			{
+				Name->Text = file->Strings[i]; //SList->Items->Add(file->Strings[i]);
+				NewAClick(NULL);
 			}
 		}
 		/*if (ContextPopupType == 'P')
@@ -249,28 +254,44 @@ void __fastcall TForm1::NLoadClick(TObject *Sender)
 			UList->Items->LoadFromFile(OpenDialog1->FileName); */
 		CheckMassAdd = true;
 		delete file;
-		Name->Text = "Название";		
-	}   	
+		Name->Text = "Название";
+	}
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::AListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled)
-          
 {
 	ContextPopupType = 'P';
-	
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::SListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled)
-          
 {
-	ContextPopupType = 'S';	
-}
-//---------------------------------------------------------------------------
-void __fastcall TForm1::UListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled)
-          
-{
-	ContextPopupType = 'A';	
+	ContextPopupType = 'S';
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::UListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled)
+{
+	ContextPopupType = 'A';
+}
+//---------------------------------------------------------------------------
+
+void TForm1::IncreaseName()
+{
+	if (CheckMassAdd == false)
+		return;
+	String str = Name->Text;
+	int i;
+	for (i = str.Length(); i > 0; i--)
+	if (str[i] < L'0' || str[i] > L'9')
+		break;
+	if (str.Length() > i)
+	{
+	int num = str.SubString(i+1, str.Length()-i).ToIntDef(0);
+		num++;
+		Name->Text = str.SubString(1, i)+IntToStr(num);
+	}
+	else
+	Name->Text = Name->Text + " 2";
+}
+//---------------------------------------------------------------------------

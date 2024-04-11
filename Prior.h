@@ -49,11 +49,6 @@ __published:	// IDE-managed Components
 	void __fastcall SListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled);
 	void __fastcall UListContextPopup(TObject *Sender, TPoint &MousePos, bool &Handled);
 
-
-
-
-
-
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
@@ -72,6 +67,7 @@ public:		// User declarations
 	bool CheckMassAdd;
 	char ContextPopupType;
 	void MassAdd(char Type);
+   void IncreaseName();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

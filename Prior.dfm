@@ -1,39 +1,53 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Fluhtuaschs'
-  ClientHeight = 370
-  ClientWidth = 517
+  Caption = 'Priority'
+  ClientHeight = 467
+  ClientWidth = 678
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -20
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  PixelsPerInch = 96
-  TextHeight = 19
+  PixelsPerInch = 120
+  TextHeight = 24
   object Splitter1: TSplitter
-    Left = 330
-    Top = 27
+    Left = 442
+    Top = 32
     Width = 2
-    Height = 343
+    Height = 435
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alRight
-    ExplicitLeft = 329
-    ExplicitTop = 0
+    ExplicitLeft = 417
+    ExplicitTop = 34
+    ExplicitHeight = 433
   end
   object Splitter2: TSplitter
-    Left = 153
-    Top = 27
-    Width = 2
-    Height = 343
-    ExplicitTop = 0
+    Left = 217
+    Top = 32
+    Height = 435
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    ExplicitLeft = 193
+    ExplicitTop = 34
+    ExplicitHeight = 433
   end
   object Panel1: TPanel
     Left = 0
-    Top = 27
-    Width = 153
-    Height = 343
+    Top = 32
+    Width = 217
+    Height = 435
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'Panel1'
@@ -41,158 +55,182 @@ object Form1: TForm1
     object NewPos: TButton
       Left = 0
       Top = 0
-      Width = 153
-      Height = 25
+      Width = 217
+      Height = 32
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alTop
       Caption = #1053#1086#1074#1072#1103' '#1087#1086#1079#1080#1094#1080#1103
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
+      Font.Height = -22
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = NewPosClick
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 151
+      ExplicitWidth = 193
     end
     object AList: TValueListEditor
       Left = 0
-      Top = 25
-      Width = 153
-      Height = 318
+      Top = 32
+      Width = 217
+      Height = 403
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alClient
-      DefaultRowHeight = 22
+      DefaultRowHeight = 24
       PopupMenu = PopupMenu1
       Strings.Strings = (
         '')
       TabOrder = 1
+      TitleCaptions.Strings = (
+        #1055#1086#1079#1080#1094#1080#1103
+        #1047#1085#1072#1095#1077#1085#1080#1077)
       OnContextPopup = AListContextPopup
       OnValidate = AListValidate
-      ExplicitLeft = 1
-      ExplicitTop = 26
-      ExplicitWidth = 151
-      ExplicitHeight = 316
+      ExplicitWidth = 188
       ColWidths = (
-        86
-        61)
+        119
+        92)
     end
   end
   object Panel2: TPanel
-    Left = 332
-    Top = 27
-    Width = 185
-    Height = 343
+    Left = 444
+    Top = 32
+    Width = 234
+    Height = 435
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alRight
     BevelOuter = bvNone
     Caption = 'Panel2'
     ShowCaption = False
     TabOrder = 1
-    ExplicitTop = 0
+    ExplicitLeft = 419
     object NewA: TButton
       Left = 0
       Top = 0
-      Width = 185
-      Height = 25
+      Width = 234
+      Height = 32
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alTop
       Caption = #1053#1086#1074#1072#1103' '#1072#1083#1100#1090#1077#1088#1085#1072#1090#1080#1074#1072
       TabOrder = 0
       OnClick = NewAClick
-      ExplicitLeft = 3
-      ExplicitTop = 6
-      ExplicitWidth = 183
     end
     object Search: TComboBox
       Left = 0
-      Top = 316
-      Width = 185
-      Height = 27
+      Top = 403
+      Width = 234
+      Height = 32
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alBottom
       AutoComplete = False
       Style = csDropDownList
-      ItemHeight = 19
+      ItemHeight = 24
       ItemIndex = 0
       TabOrder = 1
       Text = '-------'
       OnChange = SearchChange
       Items.Strings = (
         '-------')
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 183
     end
     object UList: TListBox
       Left = 0
-      Top = 25
-      Width = 185
-      Height = 291
+      Top = 32
+      Width = 234
+      Height = 371
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alClient
-      ItemHeight = 19
+      ItemHeight = 24
       PopupMenu = PopupMenu1
       TabOrder = 2
       OnClick = UListSelect
       OnContextPopup = UListContextPopup
-      ExplicitLeft = 1
-      ExplicitTop = 28
-      ExplicitWidth = 183
-      ExplicitHeight = 289
     end
   end
   object Panel3: TPanel
-    Left = 155
-    Top = 27
-    Width = 175
-    Height = 343
+    Left = 220
+    Top = 32
+    Width = 222
+    Height = 435
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel3'
     ShowCaption = False
     TabOrder = 2
-    ExplicitTop = 0
+    ExplicitLeft = 196
+    ExplicitWidth = 221
     object NewS: TButton
       Left = 0
       Top = 0
-      Width = 175
-      Height = 25
+      Width = 222
+      Height = 32
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Align = alTop
       Caption = #1053#1086#1074#1086#1077' '#1089#1074#1086#1081#1089#1090#1074#1086
       TabOrder = 0
       OnClick = NewSClick
-      ExplicitLeft = 1
-      ExplicitTop = 317
-      ExplicitWidth = 173
+      ExplicitWidth = 221
     end
     object SList: TCheckListBox
       Left = 0
-      Top = 25
-      Width = 175
-      Height = 318
+      Top = 32
+      Width = 222
+      Height = 403
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       OnClickCheck = SListClickCheck
       Align = alClient
-      ItemHeight = 19
+      ItemHeight = 24
       PopupMenu = PopupMenu1
       TabOrder = 1
       OnClick = SListClick
       OnContextPopup = SListContextPopup
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 173
-      ExplicitHeight = 316
+      ExplicitWidth = 221
     end
   end
   object Name: TEdit
     Left = 0
     Top = 0
-    Width = 517
-    Height = 27
+    Width = 678
+    Height = 32
     Hint = #1053#1072#1079#1074#1072#1085#1080#1077' '#1101#1083#1077#1084#1077#1085#1090#1072', '#1084#1086#1078#1085#1086' '#1085#1072#1079#1074#1072#1085#1080#1103' '#1095#1077#1088#1077#1079' '#1079#1072#1087#1103#1090#1091#1102
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alTop
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
     Text = #1053#1072#1079#1074#1072#1085#1080#1077
-    ExplicitTop = 343
+    ExplicitWidth = 653
   end
   object PopupMenu1: TPopupMenu
     Left = 64
@@ -205,7 +243,7 @@ object Form1: TForm1
   object OpenDialog1: TOpenDialog
     DefaultExt = 'txt'
     Filter = #1041#1083#1086#1082#1085#1086#1090'-'#1092#1072#1081#1083'|*.txt'
-    Left = 224
-    Top = 64
+    Left = 272
+    Top = 96
   end
 end
